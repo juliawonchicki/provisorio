@@ -300,13 +300,9 @@ select:focus-visible {
   left: -10px;
   right: -10px;
   bottom: -10px;
-  
-  /* Seus estilos de imagem originais */
   background-image: url(img/prototipo/1737576-soybean-1831703_1920.jpg);
   background-size: cover;
   background-position: center;
-  
-  /* Ajustes de Opacidade e Desfoque */
   opacity: 0.2;        
   filter: blur(3px);
   z-index: -1;       
@@ -950,7 +946,9 @@ select:focus-visible {
 
 /* Resultados */
 .simulador-resultados {
-  background: var(--branco);
+  background-image: url(img/prototipo/calculadora.svg);
+  /* background: var(--off-white); */
+  background-size: cover;
   border-radius: var(--radius-lg);
   padding: var(--espaco-xl);
   min-height: 400px;
@@ -971,14 +969,10 @@ select:focus-visible {
   color: var(--texto-suave);
 }
 
-.placeholder-icone {
-  font-size: 3rem;
-  opacity: 0.6;
-}
-
 .resultado-placeholder p {
   font-size: 0.95rem;
   line-height: 1.6;
+  color: var(--texto-escuro);
 }
 
 .resultado-conteudo {
@@ -1074,6 +1068,7 @@ select:focus-visible {
 .resultado-equivalencias {
   background: var(--off-white);
   border-radius: var(--radius-md);
+  border-color: var(--cinza-claro);
   padding: var(--espaco-md);
 }
 
