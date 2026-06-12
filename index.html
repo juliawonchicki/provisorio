@@ -16,7 +16,7 @@
     <header class="site-header" role="banner">
       <nav class="nav-container" aria-label="Navegação principal">
         <a href="#inicio" class="nav-logo" aria-label="Verde que Alimenta — início">
-          <img src="img/prototipo/logotipo.png" alt="" class="logo-icon" aria-hidden="true" />
+          <img src="img/prototipo/logotipo.png" alt="Logo VerdeQueAlimenta, folha sustentável" class="logo-icon" aria-hidden="true" />
           <span class="logo-text">VerdeQue<strong>Alimenta</strong></span>
         </a>
         <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menu de navegação">
@@ -32,6 +32,23 @@
           <li><a href="#sobre" class="nav-link">Sobre</a></li>
         </ul>
       </nav>
+
+      <!-- ===== BARRA DE ACESSIBILIDADE ===== -->
+      <div class="acessibilidade-barra" role="toolbar" aria-label="Opções de acessibilidade">
+        <button id="btnContraste" class="acess-btn" type="button" aria-pressed="false">
+          <span class="acess-icone" aria-hidden="true">◐</span>
+          Alto Contraste
+        </button>
+        <button id="btnFonteMais" class="acess-btn" type="button" aria-label="Aumentar tamanho da fonte">
+          <span class="acess-icone" aria-hidden="true">A+</span>
+          Aumentar Fonte
+        </button>
+        <button id="btnFonteMenos" class="acess-btn" type="button" aria-label="Diminuir tamanho da fonte">
+          <span class="acess-icone" aria-hidden="true">A-</span>
+          Diminuir Fonte
+        </button>
+      </div>
+
     </header>
 
     <main id="conteudo-principal">
@@ -341,24 +358,6 @@
             <div class="sobre-texto">
               <p>A plataforma <em>Verde que Alimenta</em> nasce da convicção de que a tecnologia, aplicada de forma consciente e acessível, é uma das mais poderosas aliadas dos pequenos produtores rurais na redução do desperdício e na construção de uma cadeia alimentar mais justa e sustentável.</p>
               <p>Cada funcionalidade foi projetada para ser prática, visualmente clara e diretamente aplicável ao cotidiano do campo brasileiro.</p>
-              
-              <!-- <div class="sobre-techs" aria-label="Tecnologias utilizadas no desenvolvimento">
-                <h3 class="sobre-techs-titulo">Tecnologias Utilizadas</h3>
-                <ul class="tech-lista" role="list">
-                  <li class="tech-item">
-                    <img src="imagens/tech-html.svg" alt="" class="tech-img" aria-hidden="true" />
-                    HTML5 Semântico
-                  </li>
-                  <li class="tech-item">
-                    <img src="imagens/tech-css.svg" alt="" class="tech-img" aria-hidden="true" />
-                    CSS3 com Media Queries
-                  </li>
-                  <li class="tech-item">
-                    <img src="imagens/tech-js.svg" alt="" class="tech-img" aria-hidden="true" />
-                    JavaScript Vanilla (DOM puro)
-                  </li>
-                </ul>
-              </div> e -->
             </div>
             <div class="sobre-visual" aria-hidden="true">
               <div class="sobre-card-visual">
@@ -381,7 +380,7 @@
     <footer class="site-footer" role="contentinfo">
       <div class="container footer-conteudo">
         <div class="footer-marca">
-          <img src="img/prototipo/logotipo.png" alt="" class="logo-icon" aria-hidden="true" />
+          <img src="img/prototipo/logotipo.png" alt="Logo VerdeQueAlimenta, folha sustentável" class="logo-icon" aria-hidden="true" />
           <span class="logo-text">VerdeQue<strong>Alimenta</strong></span>
         </div>
         <p class="footer-tema">

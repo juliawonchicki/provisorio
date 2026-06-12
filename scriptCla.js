@@ -368,16 +368,16 @@ function renderizarTecnologiaDestaque(destaque) {
     span.classList.add("tec-metrica");
     span.setAttribute("role", "listitem");
 
-    const img = document.createElement("img");
-    img.src = metrica.imgSrc;
-    img.alt = metrica.imgAlt;
-    img.classList.add("tec-metrica-img");
-    img.setAttribute("aria-hidden", "true");
+    // const img = document.createElement("img");
+    // img.src = metrica.imgSrc;
+    // img.alt = metrica.imgAlt;
+    // img.classList.add("tec-metrica-img");
+    // img.setAttribute("aria-hidden", "true");
 
     const textoSpan = document.createElement("span");
     textoSpan.textContent = metrica.texto;
 
-    span.appendChild(img);
+    // span.appendChild(img);
     span.appendChild(textoSpan);
     containerMetricas.appendChild(span);
   });
@@ -683,6 +683,70 @@ function inicializarNavAtiva() {
 }
 
 /* ============================================================
+   MÓDULO: ACESSIBILIDADE (Contraste + Tamanho de Fonte)
+   ============================================================ */
+
+const FONTE_MINIMA = 14;
+const FONTE_MAXIMA = 24;
+const FONTE_PASSO  = 2;
+const FONTE_PADRAO = 16;
+
+function aplicarTamanhoFonte(tamanho) {
+  document.documentElement.style.fontSize = `${tamanho}px`;
+  localStorage.setItem('agrinho-tamanho-fonte', String(tamanho));
+}
+
+function obterTamanhoFonteAtual() {
+  const salvo = localStorage.getItem('agrinho-tamanho-fonte');
+  const tamanho = salvo ? parseInt(salvo, 10) : FONTE_PADRAO;
+  return Math.min(Math.max(tamanho, FONTE_MINIMA), FONTE_MAXIMA);
+}
+
+function inicializarControleFonte() {
+  const btnFonteMais  = document.getElementById('btnFonteMais');
+  const btnFonteMenos = document.getElementById('btnFonteMenos');
+
+  let tamanhoAtual = obterTamanhoFonteAtual();
+  aplicarTamanhoFonte(tamanhoAtual);
+
+  if (btnFonteMais) {
+    btnFonteMais.addEventListener('click', () => {
+      if (tamanhoAtual < FONTE_MAXIMA) {
+        tamanhoAtual += FONTE_PASSO;
+        aplicarTamanhoFonte(tamanhoAtual);
+      }
+    });
+  }
+
+  if (btnFonteMenos) {
+    btnFonteMenos.addEventListener('click', () => {
+      if (tamanhoAtual > FONTE_MINIMA) {
+        tamanhoAtual -= FONTE_PASSO;
+        aplicarTamanhoFonte(tamanhoAtual);
+      }
+    });
+  }
+}
+
+function inicializarAltoContraste() {
+  const btnContraste = document.getElementById('btnContraste');
+  if (!btnContraste) return;
+
+  const contrasteSalvo = localStorage.getItem('agrinho-alto-contraste') === 'true';
+  if (contrasteSalvo) {
+    document.body.classList.add('alto-contraste');
+    btnContraste.setAttribute('aria-pressed', 'true');
+  }
+
+  btnContraste.addEventListener('click', () => {
+    const ativo = document.body.classList.toggle('alto-contraste');
+    btnContraste.setAttribute('aria-pressed', String(ativo));
+    localStorage.setItem('agrinho-alto-contraste', String(ativo));
+  });
+}
+
+
+/* ============================================================
    7. INICIALIZAÇÃO GERAL
    ============================================================ */
 
@@ -692,6 +756,8 @@ function inicializar() {
   inicializarRoteiroInterativo();
   inicializarSimulador();
   inicializarNavAtiva();
+  inicializarControleFonte();
+  inicializarAltoContraste();
 }
 
 if (document.readyState === "loading") {
